@@ -11,6 +11,7 @@ public class MythicDungoenTodo extends TodoBase{
         setChests(0);
         setMythicDifficulty(0);
         setTime(Duration.ofMinutes(10));
+        type=TodoTypes.MythicDungeon;
     }
 
     public int getMythicDifficulty() {

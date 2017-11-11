@@ -9,6 +9,7 @@ public class RaidTodo extends TodoBase{
     public RaidTodo(){
         super();
         setDifficulty(RaidDifficulty.Lfr);
+        type=TodoTypes.Raid;
     }
 
     public RaidDifficulty getDifficulty() {
