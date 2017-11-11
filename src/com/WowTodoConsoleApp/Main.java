@@ -10,5 +10,6 @@ public class Main {
 	// write your code here
         Scanner s = new Scanner(System.in);
         System.out.print(s.next());
+        TodoRepository repo=new TodoRepository();
     }
 }
