@@ -1,6 +1,6 @@
 package com.WowTodoConsoleApp;
 
-public interface TodoExecutor {
+public interface ITodoExecutor {
     boolean Execute(TodoBase todo, TodoRepository repo);
 }
 

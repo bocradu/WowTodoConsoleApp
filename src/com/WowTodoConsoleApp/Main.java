@@ -14,16 +14,24 @@ public class Main {
         TodoBase raid=new RaidTodo();
        // TodoBase mythicDungoenTodo=new MythicDungoenTodo();
         System.out.println(repo.GetTodos());
-        ArrayList<TodoExecutor> executors=new ArrayList<>();
+//        ArrayList<TodoExecutor> executors=new ArrayList<>();
 
-        executors.add(new AddTodoExecutor());
-        executors.add(new UpdateTodoExecutor());
-        executors.add(new RemoveTodoExecutor());
+//        executors.add(new AddTodoExecutor());
+//        executors.add(new UpdateTodoExecutor());
+//        executors.add(new RemoveTodoExecutor());
 
-        for (TodoExecutor executor : executors) {
-            executor.Execute(raid,repo);
-            System.out.println(repo.GetTodos());
-        }
+//        for (TodoExecutor executor : executors) {
+//            executor.Execute(raid,repo);
+//            System.out.println(repo.GetTodos());
+//        }
+        ExecuteOperation(new AddTodoExecutor(), raid, repo);
+        ExecuteOperation(new UpdateTodoExecutor(), raid, repo);
+        ExecuteOperation(new RemoveTodoExecutor(), raid, repo);
        // TodoRepository repo=new TodoRepository();
+    }
+
+    public static void ExecuteOperation(ITodoExecutor executor, TodoBase todo, TodoRepository repo) throws CloneNotSupportedException {
+        executor.Execute(todo,repo);
+        System.out.println(repo.GetTodos());
     }
 }
