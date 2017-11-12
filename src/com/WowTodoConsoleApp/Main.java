@@ -10,20 +10,20 @@ public class Main {
     public static void main(String[] args) throws IOException, CloneNotSupportedException {
 	// write your code here
       //  Scanner s = new Scanner(System.in);
+        TodoRepository repo=new TodoRepository();
         TodoBase raid=new RaidTodo();
-        System.out.println(raid);
-        TodoBase mythicDungoenTodo=new MythicDungoenTodo();
-        System.out.println(mythicDungoenTodo);
-        ArrayList<TodoBase> todos=new ArrayList<TodoBase>();
-        todos.add(raid);
-        todos.add(mythicDungoenTodo);
-        TodoBase raid2=new RaidTodo();
-        System.out.println(todos);
-        boolean result=todos.contains(raid);
-        raid.setName("test2");
-        TodoBase clone=(TodoBase)raid.clone();
-        clone.setName("test3");
-        System.out.println(result);
+       // TodoBase mythicDungoenTodo=new MythicDungoenTodo();
+        System.out.println(repo.GetTodos());
+        ArrayList<TodoExecutor> executors=new ArrayList<>();
+
+        executors.add(new AddTodoExecutor());
+        executors.add(new UpdateTodoExecutor());
+        executors.add(new RemoveTodoExecutor());
+
+        for (TodoExecutor executor : executors) {
+            executor.Execute(raid,repo);
+            System.out.println(repo.GetTodos());
+        }
        // TodoRepository repo=new TodoRepository();
     }
 }
