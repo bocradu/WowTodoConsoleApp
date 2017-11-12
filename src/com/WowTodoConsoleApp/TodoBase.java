@@ -38,10 +38,8 @@ public abstract class TodoBase implements Cloneable{
     @Override
     public boolean equals(Object obj) {
         TodoBase objToCompare=(TodoBase) obj;
-        boolean nameIsEqual=objToCompare.getName().equals(getName());
-        boolean dateIsEqual=objToCompare.getCompletedDate().toString().equals(getCompletedDate().toString());
-        boolean typeIsEqual=type.equals(objToCompare.type);
-        return nameIsEqual && dateIsEqual && typeIsEqual;
+        boolean idIsEqual=objToCompare.getId().equals(getId());
+        return idIsEqual;
     }
 
     public String getId() {

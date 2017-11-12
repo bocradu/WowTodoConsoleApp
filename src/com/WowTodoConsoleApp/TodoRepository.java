@@ -20,10 +20,15 @@ public class TodoRepository {
         return removeResult;
     }
 
-    public TodoBase FindTodo(String id){
+    public void UpdateTodo(TodoBase todo){
+        int index=todos.indexOf(todo);
+        todos.set(index,todo);
+    }
+
+    public TodoBase FindTodo(String id) throws CloneNotSupportedException {
         for (TodoBase todo : todos) {
             if (todo.getId().equals(id)) {
-                return todo;
+                return (TodoBase)todo.clone();
             }
         }
         return null;
